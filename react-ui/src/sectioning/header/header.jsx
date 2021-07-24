@@ -1,16 +1,17 @@
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <header>
-      <div>home</div>
+      <div><NavLink to="/">home</NavLink></div>
       <ul>
-        <li>start</li>
-        <li>decide</li>
-        <li>dashboard</li>
-        <li>chat</li>
-        <li>credits</li>
+        <li><NavLink to="/start">start</NavLink></li>
+        <li><NavLink to="/decide">decide</NavLink></li>
+        <li><NavLink to="/dashboard">dashboard</NavLink></li>
+        <li><NavLink to="/chat">chat</NavLink></li>
       </ul>
     </header>
   );
-}
+};
 
 export default Header;

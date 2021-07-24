@@ -25,3 +25,8 @@ https://react-bootstrap.github.io/getting-started/introduction
 
 - follow installation step:
 > npm install react-bootstrap@next bootstrap@5.0.2
+
+* React Router DOM:
+https://reactrouter.com/web/guides/quick-start
+
+> npm install react-router-dom
