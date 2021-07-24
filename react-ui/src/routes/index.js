@@ -9,19 +9,19 @@ import Start from "./start/start";
 const Routes = () => {
   return (
     <>
-      <Route exact={true} path="/" render={() => <p>Landing Page</p>} />
-      <Route exact={true} path="/start" render={() => <p>Start Page</p>} />
-      <Route exact={true} path="/decide" render={() => <p>Decide Page</p>} />
+      <Route exact={true} path="/" render={() => <Landing />} />
+      <Route exact={true} path="/start" render={() => <Start />} />
+      <Route exact={true} path="/decide" render={() => <Decide />} />
       <Route
         exact={true}
         path="/dashboard"
-        render={() => <p>Dashboard Page</p>}
+        render={() => <Dashboard />}
       />
-      <Route exact={true} path="/chat" render={() => <p>Chat Page</p>} />
+      <Route exact={true} path="/chat" render={() => <Chat />} />
       <Route
         exact={true}
         path="/credits"
-        render={() => <p>Credits for Footer</p>}
+        render={() => <Credits />}
       />
     </>
   );
