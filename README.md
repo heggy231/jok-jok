@@ -30,3 +30,5 @@ https://react-bootstrap.github.io/getting-started/introduction
 https://reactrouter.com/web/guides/quick-start
 
 > npm install react-router-dom
+
+extrapolate page routes into its own folders
