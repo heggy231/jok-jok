@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './sectioning/header/header';
+import Main from './sectioning/main/main';
+import Footer from './sectioning/footer/footer';
+import Button from 'react-bootstrap/Button';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Heggy React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Main />
+      <Footer />
+      <Button>BootBtn</Button>
+    </>
   );
 }
 

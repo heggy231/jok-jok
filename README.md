@@ -20,3 +20,8 @@
 "build": "cd react-ui/ && npm install && npm run build"
 ```
 
+* installling bootstrap:
+https://react-bootstrap.github.io/getting-started/introduction
+
+- follow installation step:
+> npm install react-bootstrap@next bootstrap@5.0.2
