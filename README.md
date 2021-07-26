@@ -4,6 +4,9 @@
 - [github code](https://github.com/heggy231/jok-jok)
 
 ## How to start up:
+0. `npm i` in 2 places.  
+    1. under root of this project, run `npm i`
+    2. `cd` into `react-ui` directory, run `npm i`
 1. `npm run dev` 
    * from the root of the project `./jok-jok`
    * Go to http://localhost:8080 to see the app running!
