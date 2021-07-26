@@ -12,11 +12,13 @@
 
 ** OR **
 
-* `cd` into `./react-ui` then run `npm run start`
+1. `cd` into `./react-ui` then run `npm run start`  (This will start the react server locally so that you can make changes to the react code.)
 
-* `npm run build` from the root of the project `./jok-jok`
+2. `npm run build` from the root of the project `./jok-jok`  (This will serve up react static files to Heroku live deployed server [jokjok](https://jok-jok.herokuapp.com/))
 
 ```shell script
+// what does npm run build do?
+
 "build": "cd react-ui/ && npm install && npm run build"
 ```
 
