@@ -10,7 +10,6 @@ const App = () => {
       <Header />
       <Main />
       <Footer />
-      <Button>BootBtn</Button>
     </>
   );
 }
