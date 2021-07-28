@@ -4,24 +4,27 @@ import Greeting from "../../components/greeting";
 const Header = () => {
   return (
     <header>
-      <div>
+      <div className="nav">
+        <img src="/lip-logo.png" alt="logo" width="40" />
+        <h1>JokJok</h1>
+      </div>
+      <div className="nav">
         <NavLink to="/">home</NavLink>
       </div>
-      <ul>
-        <li>
-          <NavLink to="/start">start</NavLink>
+      <ul className="nav">
+        <li className="nav-item">
+          <NavLink class="nav-link" to="/start">start</NavLink>
         </li>
-        <li>
-          <NavLink to="/decide">decide</NavLink>
+        <li className="nav-item">
+          <NavLink class="nav-link" to="/decide">decide</NavLink>
         </li>
-        <li>
-          <NavLink to="/dashboard">dashboard</NavLink>
+        <li className="nav-item">
+          <NavLink class="nav-link" to="/dashboard">dashboard</NavLink>
         </li>
-        <li>
-          <NavLink to="/chat">chat</NavLink>
+        <li className="nav-item">
+          <NavLink class="nav-link" to="/chat">chat</NavLink>
         </li>
       </ul>
-      <Greeting someName="June"/>
     </header>
   );
 };
