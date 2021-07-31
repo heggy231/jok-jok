@@ -37,3 +37,19 @@ https://reactrouter.com/web/guides/quick-start
 > npm install react-router-dom
 
 extrapolate page routes into its own folders
+
+## data from faker
+
+```json
+[
+  {
+    id: "724fc344-9788-49a8-9dee-8819e1e3e7e9",
+    name: "Sheryl Schmitt",
+    gender: 'female',
+    avatar: "https://cdn.fakercloud.com/avatars/keryilmaz_128.jpg",
+    email: "Juston.Goldner75@gmail.com",
+  },
+  {}, {}, {} // 10 folks
+]
+
+```

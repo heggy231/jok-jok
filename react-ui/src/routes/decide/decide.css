@@ -1,0 +1,12 @@
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.makemeflex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
