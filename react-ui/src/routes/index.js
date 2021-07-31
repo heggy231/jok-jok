@@ -3,7 +3,8 @@ import Chat from "./chat/chat";
 import Credits from "./credits/credits";
 import Dashboard from "./dashboard/dashboard";
 import Decide from "./decide/decide";
-import Signup from "./signup/signup";
+import Gender from "./gender/Gender";
+import Signup from "./signup/Signup";
 import Start from "./start/start";
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
       <Route exact={true} path="/" render={() => <Signup />} />
       <Route exact={true} path="/start" render={() => <Start />} />
       <Route exact={true} path="/decide" render={() => <Decide />} />
+      <Route exact path="/gender" render={() => <Gender />} />
       <Route
         exact={true}
         path="/dashboard"
