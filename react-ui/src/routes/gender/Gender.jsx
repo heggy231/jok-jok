@@ -1,4 +1,5 @@
 import React from 'react';
+import './Gender.css'
 
 const Gender = () => {
   return (
@@ -6,9 +7,9 @@ const Gender = () => {
       <h1>Gender Preference</h1>
       <p>Do you like to date Male or Female?</p>
       <img src="/male.jpeg" alt="male" />
-      <button>male</button>
+      <button className="btn btn-primary">male</button>
       <img src="/female.jpeg" alt="female" />
-      <button>female</button>
+      <button className="btn btn-primary">female</button>
     </div>
   );
 };
