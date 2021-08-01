@@ -10,12 +10,16 @@ const Decide = ({ gender }) => {
 
   // filter m/f
   const result = () => {
+
     switch (gender) {
+
       case 'male':
         const resultMale = data.filter( maleData => maleData.gender === 'male' )
+        console.log('resultMale: ===>', resultMale);
         return resultMale;
       case 'female':
         const resultFemale = data.filter( femaleData => femaleData.gender === 'female' )
+        console.log('result Female: ===>', resultFemale);
         return resultFemale;
       default: 
         return [];
@@ -23,14 +27,16 @@ const Decide = ({ gender }) => {
   }
 
   setSelection(result);
+  console.log('selection: ===>', selection)
+  console.log('result: ===>', result)
 
   return (
     <>
       <h1>Decide Page</h1>
       {/* filter to show m/f, mp the data */}
-      {selection.map(eachperson => {
+      {/* {selection.map(eachperson => {
         return <div>{eachperson.name}</div>
-      })}
+      })} */}
       <div className="makemeflex">
         <img src="/female.jpeg" alt="female" />
         <button className="btn btn-primary">female</button>
