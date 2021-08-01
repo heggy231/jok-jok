@@ -4,7 +4,7 @@ export const login = async ({ username, password }) => {
   // 3 states = pending, fufilled, rejected
   return new Promise ((resolve, reject) => {
     setTimeout(() => {
-      if (username === 'heggy' && password === 'here') {
+      if (username === 'heggy' && password === 'love') {
         resolve();
       } else {
         reject();
