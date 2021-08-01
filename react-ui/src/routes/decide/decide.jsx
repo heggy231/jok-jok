@@ -14,6 +14,7 @@ const Decide = ({ gender }) => {
     switch (gender) {
 
       case 'male':
+        // user wants to date male so only filter in male candidates
         const resultMale = data.filter( maleData => maleData.gender === 'male' )
         console.log('resultMale: ===>', resultMale);
         return resultMale;
@@ -21,7 +22,8 @@ const Decide = ({ gender }) => {
         const resultFemale = data.filter( femaleData => femaleData.gender === 'female' )
         console.log('result Female: ===>', resultFemale);
         return resultFemale;
-      default: 
+      default:
+        console.log('no matching candidates')
         return [];
     }
   }

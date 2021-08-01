@@ -4,29 +4,40 @@ import "./Login.css";
 
 const loginReducer = (state, action) => {
   switch (action.type) {
+    case "field":
+      return {
+        ...state,
+        // create field key programmatically es6 interpolation property name [action.field]. ex) action obj field is field: "username" => [action.field] = username key is created. Then set its value to `e.target.value`
+        [action.field]: action.value,
+      }
     case "login":
       return {
         ...state,
         isLoading: true,
         error: "",
       };
+    case "logout":
+      return {
+        ...state,
+        isLoading: false,
+      };
     case "success":
       return {
         ...state,
         isLoggedIn: true,
+        password: "",
       };
     case "error":
       return {
         ...state,
         error: "Incorrect credentials",
-        showLoader: false,
-        setUsername: "",
-        setPassword: "",
+        isLoading: false,
+        username: "",
+        password: "",
       };
     default:
       break;
   }
-
   return state;
 };
 
@@ -41,6 +52,9 @@ const initialState = {
 const Login = () => {
   const [state, dispatch] = useReducer(loginReducer);
 
+  // let username = state.username; Destructuring keys out of values when we do {username} = state;
+  const { username, password, isLoading, error, isLoggedIn } = state;
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -52,24 +66,18 @@ const Login = () => {
 
     dispatch({ type: "login" }); //user behavior of logging in
     try {
-      await login({ username, password });
-
+      await login({ username, password }); // login function takes in object with username and password
       dispatch({ type: "success" });
-      // once logged in, reset password
-      setPassword("");
-      setError("");
     } catch (error) {
-      dispatch({ type: "error" });
       /**
        * when error I want to do
        * 1. showLoader(false)
        * 2. setUsername('')
        * 3. setPassword('')
+       * 4. error: 'Incorrect credentials'
        */
-      setError("Incorrect credentials");
+      dispatch({ type: "error" });
     }
-
-    setIsLoading(false); // done login-In
   };
 
   return (
@@ -77,31 +85,43 @@ const Login = () => {
       <div className="login-container">
         {isLoggedIn ? (
           <>
-            <h1>Hello, {username}!</h1>
+            <h1>Hello, {username}! 🎉</h1>
             <button
               className="btn btn-primary"
-              onClick={() => setIsLoggedIn(false)}
+              onClick={() => dispatch({ type: "logout" })}
             >
               Log Out
             </button>
           </>
         ) : (
           <form className="form" onSubmit={formSubmit}>
-            {/* if there is error then show error */}
+            {/* if error => show error */}
             {error && <h2 className="error">{error}</h2>}
             <h2>Login:</h2>
             <input
               type="text"
               placeholder="username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "username",
+                  value: e.target.value,
+                })
+              }
             />
             <input
               type="password"
               placeholder="password"
               autoComplete="new-password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                dispatch({
+                  type: "field",
+                  field: "password",
+                  value: e.target.value,
+                })
+              }
             />
             {/* when login is in process disable the button */}
             <button
@@ -109,7 +129,7 @@ const Login = () => {
               type="submit"
               disabled={isLoading}
             >
-              {isLoading ? "Logging in, wait" : "Login"}
+              {isLoading ? "Logging in, wait ⏳" : "Login"}
             </button>
           </form>
         )}
