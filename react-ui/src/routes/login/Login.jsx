@@ -1,8 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import { login } from "./utils";
 import "./Login.css";
 
+const loginReducer = (state, action) => {
+  switch (action.type) {
+    case "login":
+      return {
+        ...state,
+        isLoading: true,
+        error: "",
+      };
+    case "success":
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    case "error":
+      return {
+        ...state,
+        error: "Incorrect credentials",
+        showLoader: false,
+        setUsername: "",
+        setPassword: "",
+      };
+    default:
+      break;
+  }
+
+  return state;
+};
+
+const initialState = {
+  username: "",
+  password: "",
+  isLoading: false,
+  error: "",
+  isLoggedIn: false,
+};
+
 const Login = () => {
+  const [state, dispatch] = useReducer(loginReducer);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -12,13 +50,22 @@ const Login = () => {
   const formSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true); // calling login function
-    // passin username and password to login function
-    setError(""); // reset error message
+    dispatch({ type: "login" }); //user behavior of logging in
     try {
       await login({ username, password });
-      setIsLoggedIn(true);
+
+      dispatch({ type: "success" });
+      // once logged in, reset password
+      setPassword("");
+      setError("");
     } catch (error) {
+      dispatch({ type: "error" });
+      /**
+       * when error I want to do
+       * 1. showLoader(false)
+       * 2. setUsername('')
+       * 3. setPassword('')
+       */
       setError("Incorrect credentials");
     }
 
@@ -31,7 +78,12 @@ const Login = () => {
         {isLoggedIn ? (
           <>
             <h1>Hello, {username}!</h1>
-            <button className="btn btn-primary" onClick={() => setIsLoggedIn(false)}>Log Out</button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setIsLoggedIn(false)}
+            >
+              Log Out
+            </button>
           </>
         ) : (
           <form className="form" onSubmit={formSubmit}>
