@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import { login } from "./utils";
 import "./Login.css";
 
@@ -9,17 +9,20 @@ const loginReducer = (state, action) => {
         ...state,
         // create field key programmatically es6 interpolation property name [action.field]. ex) action obj field is field: "username" => [action.field] = username key is created. Then set its value to `e.target.value`
         [action.field]: action.value,
-      }
+      };
     case "login":
       return {
         ...state,
         isLoading: true,
+        isLoggedIn: false,
         error: "",
       };
     case "logout":
       return {
         ...state,
         isLoading: false,
+        username: "",
+        password: "",
       };
     case "success":
       return {
@@ -50,16 +53,10 @@ const initialState = {
 };
 
 const Login = () => {
-  const [state, dispatch] = useReducer(loginReducer);
+  const [state, dispatch] = useReducer(loginReducer, initialState);
 
   // let username = state.username; Destructuring keys out of values when we do {username} = state;
   const { username, password, isLoading, error, isLoggedIn } = state;
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const formSubmit = async (e) => {
     e.preventDefault();
