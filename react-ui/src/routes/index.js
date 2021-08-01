@@ -6,13 +6,14 @@ import Decide from "./decide/decide";
 import Gender from "./gender/Gender";
 import Signup from "./signup/Signup";
 import Start from "./start/start";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 const Routes = () => {
   return (
     <>
       <Route exact={true} path="/" render={() => <Signup />} />
       <Route exact={true} path="/start" render={() => <Start />} />
-      <Route exact={true} path="/decide" render={() => <Decide />} />
+      <Route exact={true} path="/decide" render={() => <ErrorBoundry><Decide /></ErrorBoundry>} />
       <Route exact path="/gender" render={() => <Gender />} />
       <Route
         exact={true}
