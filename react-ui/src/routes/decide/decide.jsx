@@ -11,10 +11,10 @@ const Decide = ({ gender }) => {
   // filter m/f
   const result = () => {
     switch (gender) {
-      case 'female':
+      case 'male':
         const resultMale = data.filter( maleData => maleData.gender === 'male' )
         return resultMale;
-      case 'male':
+      case 'female':
         const resultFemale = data.filter( femaleData => femaleData.gender === 'female' )
         return resultFemale;
       default: 
@@ -28,7 +28,7 @@ const Decide = ({ gender }) => {
     <>
       <h1>Decide Page</h1>
       {/* filter to show m/f, mp the data */}
-      {selection.map( eachperson => {
+      {selection.map(eachperson => {
         return <div>{eachperson.name}</div>
       })}
       <div className="makemeflex">
@@ -85,7 +85,7 @@ const mapStateToProps = (state) => {
   // Translate Redux state into React props using { connect }
 
   return {
-    // key is the prop that React will see, value is for Redux state.  End goal is to provide `state.count` to the `Output` Component (dumb React component).
+    // key is the prop that React will see, value is for Redux state.
     // propName seen by React : value-in-state by Redux
     gender: state.gender
   }

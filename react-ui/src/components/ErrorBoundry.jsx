@@ -42,3 +42,4 @@ class ErrorBoundry extends Component {
 export default ErrorBoundry;
 
 // https://reactjs.org/docs/error-boundaries.html
+// https://codepen.io/heggy231/pen/abWKdmB?editors=1010
