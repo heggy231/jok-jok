@@ -1,4 +1,4 @@
-import { GET_USERNAME } from "./actionTypes";
+import { GET_USERNAME, GET_GENDER } from "./actionTypes";
 
 export const updateUsername = (username) => {
   return {
@@ -8,6 +8,15 @@ export const updateUsername = (username) => {
     },
   };
 };
+
+export const updateGender = (gender) => {
+  return {
+    type: GET_GENDER,
+    payload: {
+      gender,
+    },
+  }
+}
 
 // const blah = () => {
 //   return {type: GET_USERNAME}
