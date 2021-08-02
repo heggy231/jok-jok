@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import "./decide.css";
-import PotentialCandidates from "../../components/PotentialCandidates";
 import data from "../../data";
 import { connect } from "react-redux";
 import DecideList from "./DecideList";
 
 const Decide = (props) => {
 
-  
+  const [filteredFolks, setFilteredFolks] = useState()
 
-  console.log(props.gender)
-  console.log(data[0].gender)
+  console.log('gender chosen from global state:', props.gender)
+  console.log('from my data file:', data[0].gender)
   
   return (
     <>
