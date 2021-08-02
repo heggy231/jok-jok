@@ -5,15 +5,18 @@ import { connect } from "react-redux";
 import DecideList from "./DecideList";
 
 const Decide = (props) => {
+  const [filteredFolks, setFilteredFolks] = useState();
 
-  const [filteredFolks, setFilteredFolks] = useState()
+  console.log("gender chosen from global state:", props.gender);
+  console.log("from my data file:", data[0].gender);
 
-  console.log('gender chosen from global state:', props.gender)
-  console.log('from my data file:', data[0].gender)
-  
+  const filterResult = data.filter((person) => person.gender === props.gender);
+  console.log("filterResult ==>", filterResult);
+
   return (
     <>
       <h1>Decide Page</h1>
+
       <DecideList candidates={data} />
     </>
   );
