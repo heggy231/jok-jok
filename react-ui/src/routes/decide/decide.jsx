@@ -1,103 +1,32 @@
-import React, {useState} from 'react';
-import './decide.css';
-import PotentialCandidates from '../../components/PotentialCandidates';
-import data from '../../data';
-import { connect } from 'react-redux';
+import React, { useState } from "react";
+import "./decide.css";
+import PotentialCandidates from "../../components/PotentialCandidates";
+import data from "../../data";
+import { connect } from "react-redux";
+import DecideList from "./DecideList";
 
-const Decide = ({ gender }) => {
+const Decide = (props) => {
 
-  const [selection, setSelection] = useState([]); 
+  
 
-  // filter m/f
-  const result = () => {
-
-    switch (gender) {
-
-      case 'male':
-        // user wants to date male so only filter in male candidates
-        const resultMale = data.filter( maleData => maleData.gender === 'male' )
-        console.log('resultMale: ===>', resultMale);
-        return resultMale;
-      case 'female':
-        const resultFemale = data.filter( femaleData => femaleData.gender === 'female' )
-        console.log('result Female: ===>', resultFemale);
-        return resultFemale;
-      default:
-        console.log('no matching candidates')
-        return [];
-    }
-  }
-
-  setSelection(result);
-  console.log('selection: ===>', selection)
-  console.log('result: ===>', result)
-
+  console.log(props.gender)
+  console.log(data[0].gender)
+  
   return (
     <>
       <h1>Decide Page</h1>
-      {/* filter to show m/f, mp the data */}
-      {/* {selection.map(eachperson => {
-        return <div>{eachperson.name}</div>
-      })} */}
-      <div className="makemeflex">
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-        <img src="/female.jpeg" alt="female" />
-        <button className="btn btn-primary">female</button>
-      </div>
-
-      <div className="makemeflex">
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-        <img src="/male.jpeg" alt="male" />
-        <button className="btn btn-primary">male</button>
-      </div>
+      <DecideList candidates={data} />
     </>
   );
 };
 
-
 const mapStateToProps = (state) => {
   // Translate Redux state into React props using { connect }
-
   return {
     // key is the prop that React will see, value is for Redux state.
     // propName seen by React : value-in-state by Redux
-    gender: state.gender
-  }
-}
-
+    gender: state.gender,
+  };
+};
 
 export default connect(mapStateToProps)(Decide);
