@@ -20,7 +20,7 @@ const Decide = (props) => {
       <h1>Decide Page</h1>
       <h2>Show only filtered results:</h2>
 
-      <DecideList candidates={data} />
+      <DecideList candidates={filterResult} />
     </>
   );
 };
