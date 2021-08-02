@@ -3,6 +3,12 @@
 - [demo](https://jok-jok.herokuapp.com/)
 - [github code](https://github.com/heggy231/jok-jok)
 
+
+## debug branch - 
+1. checkout debug branch
+2. > cd ./react-ui
+3. go to http://localhost:3000/decide to see the bug (infinite loop error/re-render issue).
+
 ## How to start up:
 0. `npm i` in 2 places.  
     1. under root of this project, run `npm i`
