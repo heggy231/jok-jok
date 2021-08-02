@@ -10,12 +10,15 @@ const Decide = (props) => {
   console.log("gender chosen from global state:", props.gender);
   console.log("from my data file:", data[0].gender);
 
-  const filterResult = data.filter((person) => person.gender === props.gender);
+  const storeGender = props.gender.gender;
+  console.log('storeGender', storeGender);
+  const filterResult = data.filter((person) => person.gender === props.gender.gender);
   console.log("filterResult ==>", filterResult);
 
   return (
     <>
       <h1>Decide Page</h1>
+      <h2>Show only filtered results:</h2>
 
       <DecideList candidates={data} />
     </>
