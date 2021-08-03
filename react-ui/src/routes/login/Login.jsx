@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { login } from "./utils";
 import "./Login.css";
+import { NavLink } from "react-router-dom";
 
 const loginReducer = (state, action) => {
   switch (action.type) {
@@ -130,6 +131,9 @@ const Login = () => {
             </button>
           </form>
         )}
+        <span>
+          <NavLink to="/signup">SignUp</NavLink>
+        </span>
       </div>
     </div>
   );

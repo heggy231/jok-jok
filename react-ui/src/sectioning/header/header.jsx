@@ -1,15 +1,23 @@
 import { NavLink } from "react-router-dom";
 import Greeting from "../../components/greeting";
-import './header.css';
+import "./header.css";
 
 const Header = () => {
   return (
     <header>
       <div>
-        <NavLink to="/"><img src="/lip-logo.png" alt="logo" width="40" /></NavLink>
+        <NavLink to="/">
+          <img src="/lip-logo.png" alt="logo" width="40" />
+        </NavLink>
         <NavLink to="/">JokJok</NavLink>
       </div>
       <ul>
+        <li>
+          <NavLink to="/login">login</NavLink>
+        </li>
+        <li>
+          <NavLink to="/signup">signup</NavLink>
+        </li>
         <li>
           <NavLink to="/start">start</NavLink>
         </li>
