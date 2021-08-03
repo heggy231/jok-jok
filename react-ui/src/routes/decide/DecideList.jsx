@@ -6,9 +6,11 @@ const DecideList = (props) => {
 
   const toggleClass = (e) => {
     console.log('e.target: ===>', e.target);
-    // e.target.classList.add("active")
-    // e.target.classList.toggle
-    setActive(!isActive);
+    if (e.target.className === "fa fa-thumbs-up fa-3x like active") {
+      e.target.classList.remove("active");
+    } else {
+      e.target.classList.add("active")
+    }
   };
 
   // $('.like, .dislike').on('click', function() {
@@ -25,20 +27,12 @@ const DecideList = (props) => {
         <span>
           <div className="rating">
             <div
-              className={isActive ? "like active" : "like"}
+              className="like"
               onClick={toggleClass}
             >
               <i className="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
             </div>
-            <div 
-              className={isActive ? "dislike active" : "dislike"}
-              onClick={toggleClass}
-            >
-              <i
-                className="fa fa-thumbs-down fa-3x like"
-                aria-hidden="true"
-              ></i>
-            </div>
+
           </div>
         </span>
       </div>

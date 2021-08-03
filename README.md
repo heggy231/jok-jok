@@ -55,7 +55,7 @@ extrapolate page routes into its own folders
 ```
 - toggle thumbs up/down
 
-Try 1- didn't work:
+* Try 1- hook setActive false/true didn't work:
 ```js
 const [isActive, setActive] = useState(false);
 
