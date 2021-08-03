@@ -53,3 +53,33 @@ extrapolate page routes into its own folders
 ]
 
 ```
+- toggle thumbs up/down
+
+Try 1- didn't work:
+```js
+const [isActive, setActive] = useState(false);
+
+const toggleClass = () => {
+  setActive(!isActive);
+};
+
+<span>
+  <div className="rating">
+    <div
+      className={isActive ? "like active" : "like"}
+      onClick={toggleClass}
+    >
+      <i className="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+    </div>
+    <div 
+      className={isActive ? "dislike active" : "dislike"}
+      onClick={toggleClass}
+    >
+      <i
+        className="fa fa-thumbs-down fa-3x like"
+        aria-hidden="true"
+      ></i>
+    </div>
+  </div>
+</span>
+```
