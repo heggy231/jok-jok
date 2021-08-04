@@ -14,13 +14,12 @@ export default function (state = initialState, action) {
       return copyAdd;
 
     case REMOVE_FAVORITE:
-      const copy = state.find((element) => element.id === action.payload.id);
+      // const copy = state.find((element) => element.id === action.payload.id);
+      const copy = state.filter(x => x.id !== action.payload.id);
       console.log("copy ===>", copy);
       state.slice(copy);
       console.log("state ===>", state);
-      return {
-        copy,
-      };
+      return copy;
     default:
       return state;
   }
