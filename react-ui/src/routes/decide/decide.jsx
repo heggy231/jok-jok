@@ -2,25 +2,55 @@ import React, { useState } from "react";
 import "./decide.css";
 import data from "../../data";
 import { connect } from "react-redux";
-import DecideList from "./DecideList";
+import { addFavorite, removeFavorite } from "../../redux/actions";
 
 const Decide = (props) => {
-  const [filteredFolks, setFilteredFolks] = useState();
-
+  const { toggleAdd, toggleRemove } = props;
   console.log("gender chosen from global state:", props.gender);
   console.log("from my data file:", data[0].gender);
 
   const storeGender = props.gender.gender;
-  console.log('storeGender', storeGender);
-  const filterResult = data.filter((person) => person.gender === props.gender.gender);
+  console.log("storeGender", storeGender);
+  const filterResult = data.filter(
+    (person) => person.gender === props.gender.gender
+  );
   console.log("filterResult ==>", filterResult);
 
   return (
     <>
       <h1>Decide Page</h1>
       <h2>Show only filtered results:</h2>
-
-      <DecideList candidates={filterResult} />
+      {filterResult.map((candidate) => {
+        return (
+          <div className="makemeflex-col give-margin-right-8">
+            <img src={candidate.avatar} alt="person" />
+            {candidate.name} - {candidate.email}
+            <span>
+              <div className="rating">
+                <div className="like">
+                  <i
+                    className="fa fa-thumbs-up fa-3x like"
+                    aria-hidden="true"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (
+                        e.target.className ===
+                        "fa fa-thumbs-up fa-3x like active"
+                      ) {
+                        e.target.classList.remove("active");
+                        toggleRemove(candidate.id);
+                      } else {
+                        e.target.classList.add("active");
+                        toggleAdd(candidate);
+                      }
+                    }}
+                  ></i>
+                </div>
+              </div>
+            </span>
+          </div>
+        );
+      })}
     </>
   );
 };
@@ -34,4 +64,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Decide);
+const mapDispatchToProps = (dispatch) => ({
+  toggleAdd: (candidate) =>
+    dispatch(addFavorite(candidate.id, candidate.name, candidate.email)),
+  toggleRemove: (id) => dispatch(removeFavorite(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Decide);
