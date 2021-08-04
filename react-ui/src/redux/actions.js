@@ -19,7 +19,6 @@ export const updateGender = (gender) => {
 };
 
 export const updateFavorite = (id, name) => {
-  // console.log('id =====> ', id, name);
   return {
     type: GET_FAVORITE,
     payload: {

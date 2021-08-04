@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import "./DecideList.css";
 import { updateFavorite } from "../../redux/actions";
 
-const DecideList = (props) => {
+const DecideList = ({ candidates, updateFavorite }) => {
 
-  const toggleClass = (e) => {
-    console.log("e.target: ===>", e.target);
-    if (e.target.className === "fa fa-thumbs-up fa-3x like active") {
-      e.target.classList.remove("active");
+  const handleSelection = (e) => {
+    const thumbsUp = e.currentTarget.querySelector('i');
+    const isActive = thumbsUp.classList.contains('active');
+    const id = e.currentTarget.attributes['dataid'].value;
+    const name = e.currentTarget.attributes['dataname'].value;
+    if (isActive) {
+      thumbsUp.classList.remove("active");
     } else {
-      e.target.classList.add("active");
+      thumbsUp.classList.add("active");
     }
-    dispatch(updateFavorite(1, 'heggy here'))
+    updateFavorite(id, name);
   };
 
-  const candidates = props.candidates;
   const candidateItems = candidates.map((candidate, index) => {
+    console.log(candidate)
     return (
-      <div className="makemeflex-col give-margin-right-8">
+      <div className="makemeflex-col give-margin-right-8" dataId={candidate.id} dataName={candidate.name} onClick={handleSelection}>
         <img src={candidate.avatar} alt="person" />
         <span>
           <div className="rating">
@@ -26,7 +29,6 @@ const DecideList = (props) => {
               <i
                 className="fa fa-thumbs-up fa-3x like"
                 aria-hidden="true"
-                onClick={toggleClass}
               ></i>
             </div>
           </div>
@@ -37,4 +39,8 @@ const DecideList = (props) => {
   return <div className="makemeflex">{candidateItems}</div>;
 };
 
-export default connect(null, { updateFavorite })(DecideList);
+const mapDispatchToProps = dispatch => ({
+  updateFavorite: (id, username) => dispatch(updateFavorite(id, username))
+});
+
+export default connect(null, mapDispatchToProps)(DecideList);
