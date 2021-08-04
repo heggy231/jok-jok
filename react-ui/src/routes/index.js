@@ -1,4 +1,5 @@
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
 import Chat from "./chat/chat";
 import Credits from "./credits/credits";
 import Dashboard from "./dashboard/dashboard";
@@ -9,7 +10,7 @@ import Start from "./start/start";
 import ErrorBoundry from "../components/ErrorBoundry";
 import Signup from "./signup/Signup";
 
-const Routes = () => {
+const Routes = ({ gender }) => {
   return (
     <>
       <Route exact={true} path="/signup" render={() => <Signup />} />
@@ -25,6 +26,9 @@ const Routes = () => {
         )}
       />
       <Route exact path="/gender" render={() => <Gender />} />
+      <Route exact path="/gender" render={() => <Gender />}>
+        {gender ? <Redirect to="/decide" /> : <Redirect to="/gender" />}
+      </Route>
       <Route exact={true} path="/dashboard" render={() => <Dashboard />} />
       <Route exact={true} path="/chat" render={() => <Chat />} />
       <Route exact={true} path="/credits" render={() => <Credits />} />
@@ -32,4 +36,8 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+const mapStateToProps = state => ({
+  gender: state.gender
+});
+
+export default connect(mapStateToProps)(Routes);
