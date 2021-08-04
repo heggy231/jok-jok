@@ -3,6 +3,8 @@
 - [demo](https://jok-jok.herokuapp.com/)
 - [github code](https://github.com/heggy231/jok-jok)
 
+- working on :https://github.com/heggy231/jok-jok/commit/b96f3851dd95a61366331bf4633476b5a40b3886
+
 ## How to start up:
 0. `npm i` in 2 places.  
     1. under root of this project, run `npm i`
