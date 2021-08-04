@@ -1,4 +1,4 @@
-import { GET_USERNAME, GET_GENDER } from "./actionTypes";
+import { GET_USERNAME, GET_GENDER, GET_FAVORITE } from "./actionTypes";
 
 export const updateUsername = (username) => {
   return {
@@ -15,8 +15,19 @@ export const updateGender = (gender) => {
     payload: {
       gender,
     },
-  }
-}
+  };
+};
+
+export const updateFavorite = (id, name) => {
+  // console.log('id =====> ', id, name);
+  return {
+    type: GET_FAVORITE,
+    payload: {
+      id: id,
+      name: name,
+    },
+  };
+};
 
 // const blah = () => {
 //   return {type: GET_USERNAME}

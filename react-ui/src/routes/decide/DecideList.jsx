@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import "./DecideList.css";
+import { updateFavorite } from "../../redux/actions";
 
 const DecideList = (props) => {
+
   const toggleClass = (e) => {
     console.log("e.target: ===>", e.target);
     if (e.target.className === "fa fa-thumbs-up fa-3x like active") {
@@ -9,13 +12,8 @@ const DecideList = (props) => {
     } else {
       e.target.classList.add("active");
     }
+    dispatch(updateFavorite(1, 'heggy here'))
   };
-
-  // $('.like, .dislike').on('click', function() {
-  //   event.preventDefault();
-  //   $('.active').removeClass('active');
-  //   $(this).addClass('active');
-  // });
 
   const candidates = props.candidates;
   const candidateItems = candidates.map((candidate, index) => {
@@ -39,4 +37,4 @@ const DecideList = (props) => {
   return <div className="makemeflex">{candidateItems}</div>;
 };
 
-export default DecideList;
+export default connect(null, { updateFavorite })(DecideList);

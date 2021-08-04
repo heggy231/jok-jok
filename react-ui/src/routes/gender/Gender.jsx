@@ -1,7 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./Gender.css";
 import { updateGender } from "../../redux/actions";
-import { connect } from "react-redux";
 
 const Gender = ({ updateGender }) => {
   const handleClick = (e) => {
