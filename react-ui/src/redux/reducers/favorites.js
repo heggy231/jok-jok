@@ -8,7 +8,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_FAVORITE:
 
-      const { id, name, email } = action.payload;
+      const { id, name, email, avatar, hobby } = action.payload;
       const copyAdd = state.slice();
       copyAdd.push(action.payload);
       return copyAdd;

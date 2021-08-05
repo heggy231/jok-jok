@@ -2,7 +2,14 @@ import { connect } from "react-redux";
 
 const Dashboard = ({ favorites }) => {
   const theFavorites = favorites.map((favorite, index) => {
-    return <li>{favorite.name}</li>
+    return (
+      <li key={index}>
+        {console.log('imge? =>>>', favorite.avatar)}
+        <img src={favorite.avatar} alt={favorite.name} />
+        <h2>{favorite.name}</h2>
+        <div>- {favorite.hobby}</div>
+      </li>
+    )
   })
   return (
     <>
