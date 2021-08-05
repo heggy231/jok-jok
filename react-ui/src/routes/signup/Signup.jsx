@@ -46,7 +46,7 @@ const Signup = ({ isSubmitted, submitForm }) => {
             name="gender"
             type="text"
             onChange={handleChange}
-            placeholder="female? or male?"
+            placeholder="female or male"
             value={fields.gender}
           />
           <input
