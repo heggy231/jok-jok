@@ -20,14 +20,25 @@ const Submission = ({ formData, isSubmitted, startOver }) => {
         <li>{formData.email}</li>
         <li>{formData.passsword}</li>
       </ul>
-      <button className="submit btn btn-primary">Start Over</button>
+      <button 
+        className="submit btn btn-primary"
+        onClick={handleStartOver}
+      >
+        Start Over
+      </button>
       {!isSubmitted && <Redirect exact to="/signup" />}
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  formData: state.formData.formData
+  formData: state.formData.formData,
+  isSubmitted: state.formData.isSubmitted,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  // action startOver gets dispatch which resets the signup form
+  startOver: () => dispatch(startOver()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Submission);
