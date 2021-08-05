@@ -1,8 +1,6 @@
 import { combineReducers } from "redux";
 import favorites from "./favorites";
+import formData from "./formData";
 import gender from "./gender";
-import username from "./username";
 
-import initialCandidates from "./initialCandidates";
-
-export default combineReducers({ username, initialCandidates, gender, favorites });
+export default combineReducers({ formData, gender, favorites });

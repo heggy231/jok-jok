@@ -85,3 +85,6 @@ const toggleClass = () => {
   </div>
 </span>
 ```
+
+## friendly error messages page:
+when user goes to /submission

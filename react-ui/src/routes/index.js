@@ -6,16 +6,16 @@ import Dashboard from "./dashboard/dashboard";
 import Decide from "./decide/decide";
 import Gender from "./gender/Gender";
 import Login from "./login/Login";
-import Start from "./start/start";
-import ErrorBoundry from "../components/ErrorBoundry";
 import Signup from "./signup/Signup";
+import Submission from "./submission/Submission";
+import ErrorBoundry from "../components/ErrorBoundry";
 
-const Routes = ({ gender }) => {
+const Routes = ({ gender, isSubmitted }) => {
   return (
     <>
       <Route exact={true} path="/signup" render={() => <Signup />} />
+      <Route exact path="/submission" render={() => <Submission />} />
       <Route exact={true} path="/" render={() => <Login />} />
-      <Route exact={true} path="/start" render={() => <Start />} />
       <Route
         exact={true}
         path="/decide"
@@ -25,10 +25,12 @@ const Routes = ({ gender }) => {
           </ErrorBoundry>
         )}
       />
+
       <Route exact path="/gender" render={() => <Gender />} />
       <Route exact path="/gender" render={() => <Gender />}>
         {gender ? <Redirect to="/decide" /> : <Redirect to="/gender" />}
       </Route>
+
       <Route exact={true} path="/dashboard" render={() => <Dashboard />} />
       <Route exact={true} path="/chat" render={() => <Chat />} />
       <Route exact={true} path="/credits" render={() => <Credits />} />
@@ -36,8 +38,9 @@ const Routes = ({ gender }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  gender: state.gender
+const mapStateToProps = (state) => ({
+  isSubmitted: state.formData.isSubmitted,
+  gender: state.gender,
 });
 
 export default connect(mapStateToProps)(Routes);
