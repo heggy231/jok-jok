@@ -18,41 +18,41 @@ const Decide = (props) => {
 
   return (
     <>
-      <div className="y-wrap y-wrap--inner">
-      <h2>Dating candidates:</h2>
-      <div className="makemeflex y-wrap y-wrap--inner">
-        {filterResult.map((candidate) => {
-          return (
-            <div className="makemeflex-col-decide give-margin-right-8">
-              <img src={candidate.avatar} alt="person" />
-              {candidate.name}
-              <span>
-                <div className="rating">
-                  <div className="like">
-                    <i
-                      className="fa fa-thumbs-up fa-3x like"
-                      aria-hidden="true"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        if (
-                          e.target.className ===
-                          "fa fa-thumbs-up fa-3x like active"
-                        ) {
-                          e.target.classList.remove("active");
-                          toggleRemove(candidate.id);
-                        } else {
-                          e.target.classList.add("active");
-                          toggleAdd(candidate);
-                        }
-                      }}
-                    ></i>
+      <div className="y-wrap y-wrap--inner-decide">
+        <h2>Possible dates</h2>
+        <div className="makemeflex y-wrap y-wrap--inner-decide">
+          {filterResult.map((candidate) => {
+            return (
+              <div className="makemeflex-col-decide give-margin-right-8">
+                <img src={candidate.avatar} alt="person" />
+                {candidate.name}
+                <span>
+                  <div className="rating">
+                    <div className="like">
+                      <i
+                        className="fa fa-thumbs-up fa-3x like"
+                        aria-hidden="true"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          if (
+                            e.target.className ===
+                            "fa fa-thumbs-up fa-3x like active"
+                          ) {
+                            e.target.classList.remove("active");
+                            toggleRemove(candidate.id);
+                          } else {
+                            e.target.classList.add("active");
+                            toggleAdd(candidate);
+                          }
+                        }}
+                      ></i>
+                    </div>
                   </div>
-                </div>
-              </span>
-            </div>
-          );
-        })}
-      </div>
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );
@@ -69,7 +69,15 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   toggleAdd: (candidate) =>
-    dispatch(addFavorite(candidate.id, candidate.name, candidate.email)),
+    dispatch(
+      addFavorite(
+        candidate.id,
+        candidate.name,
+        candidate.email,
+        candidate.avatar,
+        candidate.hobby
+      )
+    ),
   toggleRemove: (id) => dispatch(removeFavorite(id)),
 });
 

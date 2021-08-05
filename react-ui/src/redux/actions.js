@@ -14,7 +14,7 @@ export const updateGender = (gender) => {
   };
 };
 
-export const addFavorite = (id, name, email) => {
+export const addFavorite = (id, name, email, avatar, hobby) => {
   // console.log('id =====> ', id, name);
   return {
     type: ADD_FAVORITE,
@@ -22,6 +22,8 @@ export const addFavorite = (id, name, email) => {
       id: id,
       name: name,
       email: email,
+      avatar: avatar,
+      hobby: hobby,
     },
   };
 };
