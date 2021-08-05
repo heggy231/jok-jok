@@ -14,7 +14,7 @@ const Signup = ({ isSubmitted, submitForm }) => {
 
   const [fields, setFields] = useState(defaultFields);
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const key = e.target.name;
     const value = e.target.value;
     const copy = Object.assign({}, fields, {
@@ -23,6 +23,19 @@ const Signup = ({ isSubmitted, submitForm }) => {
     });
     setFields(copy);
   };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    submitForm(fields);
+    setFields(defaultFields);
+  };
+
+  return (
+    <div className="App">
+      <form onSubmit={handleSubmit}>
+      </form>
+    </div>
+  )
 };
 
 const mapStateToProps = (state) => ({
