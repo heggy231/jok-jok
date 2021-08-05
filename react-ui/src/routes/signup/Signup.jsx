@@ -33,7 +33,7 @@ const Signup = ({ isSubmitted, submitForm }) => {
   return (
     <div className="App">
       <div className="signup-container">
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
           <h2>Signup:</h2>
           <input
             name="username"
@@ -65,6 +65,7 @@ const Signup = ({ isSubmitted, submitForm }) => {
           />
           <button className="submit btn btn-primary">Submit</button>
         </form>
+        {isSubmitted && <Redirect to="/submission" />}
       </div>
     </div>
   );
