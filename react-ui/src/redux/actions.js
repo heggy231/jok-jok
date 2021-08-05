@@ -1,4 +1,10 @@
-import { GET_USERNAME, GET_GENDER, ADD_FAVORITE, REMOVE_FAVORITE } from "./actionTypes";
+import {
+  GET_USERNAME,
+  GET_GENDER,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+  SUBMIT_FORM,
+} from "./actionTypes";
 
 export const updateUsername = (username) => {
   return {
@@ -36,6 +42,16 @@ export const removeFavorite = (id) => {
     type: REMOVE_FAVORITE,
     payload: {
       id: id,
+    },
+  };
+};
+
+export const submitForm = (formData) => {
+  return {
+    type: SUBMIT_FORM,
+    payload: {
+      formData: {},
+      isSubmitted: false,
     },
   };
 };

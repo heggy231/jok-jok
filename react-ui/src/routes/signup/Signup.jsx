@@ -14,7 +14,7 @@ const Signup = ({ isSubmitted, submitForm }) => {
 
   const [fields, setFields] = useState(defaultFields);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const key = e.target.name;
     const value = e.target.value;
     const copy = Object.assign({}, fields, {
@@ -24,18 +24,50 @@ const Signup = ({ isSubmitted, submitForm }) => {
     setFields(copy);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm(fields);
+    submitForm(fields); // send form data to redux action submitForm
     setFields(defaultFields);
   };
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-      </form>
+      <div className="signup-container">
+        <form onSubmit={handleSubmit}>
+          <h2>Signup:</h2>
+          <input
+            name="username"
+            type="text"
+            onChange={handleChange}
+            placeholder="username"
+            value={fields.username}
+          />
+          <input
+            name="gender"
+            type="text"
+            onChange={handleChange}
+            placeholder="female? or male?"
+            value={fields.gender}
+          />
+          <input
+            name="email"
+            type="text"
+            onChange={handleChange}
+            placeholder="email"
+            value={fields.email}
+          />
+          <input
+            name="password"
+            type="text"
+            onChange={handleChange}
+            placeholder="password"
+            value={fields.password}
+          />
+          <button className="submit btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
-  )
+  );
 };
 
 const mapStateToProps = (state) => ({
