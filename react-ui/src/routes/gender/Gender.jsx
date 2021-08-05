@@ -11,17 +11,17 @@ const Gender = ({ updateGender }) => {
   };
 
   return (
-    <div>
+    <div className="y-wrap y-wrap--inner">
       <h1>Gender Preference</h1>
       <p>Do you like to date Male or Female?</p>
-      <div className="makemeflex">
-        <div className="makemeflex-col give-margin-right-8">
+      <div className="makemeflex y-wrap y-wrap--inner">
+        <div className="makemeflex-col-gender give-margin-right-8">
           <img src="/male.jpeg" alt="male" className="give-margin-bottom-2" />
           <button onClick={handleClick} name="male" className="btn btn-primary">
             male
           </button>
         </div>
-        <div className="makemeflex-col">
+        <div className="makemeflex-col-gender">
           <img src="/female.jpeg" alt="female" className="give-margin-bottom-2"/>
           <button
             onClick={handleClick}

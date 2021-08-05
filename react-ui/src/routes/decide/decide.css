@@ -26,6 +26,12 @@ img {
   align-items: center;
 }
 
+.y-wrap .y-wrap--inner {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
 .give-margin-right-2 {
   margin-right: 2px;
 }
@@ -34,11 +40,18 @@ img {
   margin-right: 8px;
 }
 
-.makemeflex-col {
+.makemeflex-col-decide {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 229px;
+  border: solid 1px #80808059;
+  border-radius: 11px;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .rating {

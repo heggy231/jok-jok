@@ -18,39 +18,42 @@ const Decide = (props) => {
 
   return (
     <>
-      <h1>Decide Page</h1>
-      <h2>Show only filtered results:</h2>
-      {filterResult.map((candidate) => {
-        return (
-          <div className="makemeflex-col give-margin-right-8">
-            <img src={candidate.avatar} alt="person" />
-            {candidate.name} - {candidate.email}
-            <span>
-              <div className="rating">
-                <div className="like">
-                  <i
-                    className="fa fa-thumbs-up fa-3x like"
-                    aria-hidden="true"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (
-                        e.target.className ===
-                        "fa fa-thumbs-up fa-3x like active"
-                      ) {
-                        e.target.classList.remove("active");
-                        toggleRemove(candidate.id);
-                      } else {
-                        e.target.classList.add("active");
-                        toggleAdd(candidate);
-                      }
-                    }}
-                  ></i>
+      <div className="y-wrap y-wrap--inner">
+      <h2>Dating candidates:</h2>
+      <div className="makemeflex y-wrap y-wrap--inner">
+        {filterResult.map((candidate) => {
+          return (
+            <div className="makemeflex-col-decide give-margin-right-8">
+              <img src={candidate.avatar} alt="person" />
+              {candidate.name}
+              <span>
+                <div className="rating">
+                  <div className="like">
+                    <i
+                      className="fa fa-thumbs-up fa-3x like"
+                      aria-hidden="true"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (
+                          e.target.className ===
+                          "fa fa-thumbs-up fa-3x like active"
+                        ) {
+                          e.target.classList.remove("active");
+                          toggleRemove(candidate.id);
+                        } else {
+                          e.target.classList.add("active");
+                          toggleAdd(candidate);
+                        }
+                      }}
+                    ></i>
+                  </div>
                 </div>
-              </div>
-            </span>
-          </div>
-        );
-      })}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+      </div>
     </>
   );
 };

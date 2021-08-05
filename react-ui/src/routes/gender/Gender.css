@@ -17,7 +17,13 @@ img {
   align-items: center;
 }
 
-.makemeflex-col {
+.y-wrap .y-wrap--inner {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+.makemeflex-col-gender {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

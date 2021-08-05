@@ -131,9 +131,6 @@ const Login = () => {
             </button>
           </form>
         )}
-        <span>
-          <NavLink to="/signup">SignUp</NavLink>
-        </span>
       </div>
     </div>
   );
