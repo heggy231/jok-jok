@@ -21,6 +21,13 @@
   width: 90%;
 }
 
+.makeme-flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 42vh;
+}
+
 .button {
   border: 1px solid #bbb;
   margin-top: 30px;
@@ -35,4 +42,13 @@
 
 .submit {
   padding: 10px;
+}
+
+.form {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 10px;
 }

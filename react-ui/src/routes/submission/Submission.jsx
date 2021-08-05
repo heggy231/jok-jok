@@ -12,21 +12,39 @@ const Submission = ({ formData, isSubmitted, startOver }) => {
 
   return (
     <div className="y-wrap ywrap--inner">
-      <h1>Submitted! 🍥</h1>
-      <img src="/tea.jpg" />
-      <ul className="submission-block">
-        <li>{formData.username}</li>
-        <li>{formData.gender}</li>
-        <li>{formData.email}</li>
-        <li>{formData.passsword}</li>
-      </ul>
-      <button 
-        className="submit btn btn-primary"
-        onClick={handleStartOver}
-      >
-        Start Over
-      </button>
-      {!isSubmitted && <Redirect exact to="/signup" />}
+      {formData ? (
+        <>
+          <div className="makeme-flex-col">
+            <h1>Submitted! 🍥</h1>
+            <img src="/tea.jpg" />
+          </div>
+          <div className="form">
+            <h2> user submitted data: </h2>
+            <ul className="submission-block">
+              <li>{formData.username}</li>
+              <li>{formData.gender}</li>
+              <li>{formData.email}</li>
+              <li>{formData.password}</li>
+            </ul>
+            <button
+              className="submit btn btn-primary"
+              onClick={handleStartOver}
+            >
+              Start Over
+            </button>
+          </div>
+
+          {!isSubmitted && <Redirect exact to="/signup" />}
+        </>
+      ) : (
+        <div className="makeme-flex-col">
+          <h1> 🐑 Error: Hmm please fill out signup form</h1>
+          <img src="/lookout.jpg" alt="binocular woman" />
+          <button className="submit btn btn-primary" onClick={handleStartOver}>
+            take me to signup page
+          </button>
+        </div>
+      )}
     </div>
   );
 };

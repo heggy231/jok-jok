@@ -6,13 +6,15 @@ import Dashboard from "./dashboard/dashboard";
 import Decide from "./decide/decide";
 import Gender from "./gender/Gender";
 import Login from "./login/Login";
-import ErrorBoundry from "../components/ErrorBoundry";
 import Signup from "./signup/Signup";
+import Submission from "./submission/Submission";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 const Routes = ({ gender, isSubmitted }) => {
   return (
     <>
       <Route exact={true} path="/signup" render={() => <Signup />} />
+      <Route exact path="/submission" render={() => <Submission />} />
       <Route exact={true} path="/" render={() => <Login />} />
       <Route
         exact={true}
@@ -36,9 +38,9 @@ const Routes = ({ gender, isSubmitted }) => {
   );
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isSubmitted: state.formData.isSubmitted,
-  gender: state.gender
+  gender: state.gender,
 });
 
 export default connect(mapStateToProps)(Routes);
