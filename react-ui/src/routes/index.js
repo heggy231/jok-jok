@@ -25,10 +25,12 @@ const Routes = ({ gender }) => {
           </ErrorBoundry>
         )}
       />
+      
       <Route exact path="/gender" render={() => <Gender />} />
       <Route exact path="/gender" render={() => <Gender />}>
         {gender ? <Redirect to="/decide" /> : <Redirect to="/gender" />}
       </Route>
+
       <Route exact={true} path="/dashboard" render={() => <Dashboard />} />
       <Route exact={true} path="/chat" render={() => <Chat />} />
       <Route exact={true} path="/credits" render={() => <Credits />} />
