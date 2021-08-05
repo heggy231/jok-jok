@@ -46,6 +46,16 @@ export const submitForm = (formData) => {
   };
 };
 
+export const startOver = () => {
+  return {
+    type: SUBMIT_FORM,
+    payload: {
+      formData: {},
+      isSubmitted: false,
+    }
+  }
+}
+
 // const blah = () => {
 //   return {type: GET_USERNAME}
 // };
