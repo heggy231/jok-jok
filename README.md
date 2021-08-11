@@ -5,6 +5,16 @@
 
 - working on :https://github.com/heggy231/jok-jok/commit/b96f3851dd95a61366331bf4633476b5a40b3886
 
+### different questions
+1. questions - based on score, people by 
+people into db - 
+dating website people who love kpop 
+  - korean food, korean culture, 
+  - filter 2/5, 3/5 <<< rating  (points)
+  - pick 5 questions (drop down select)
+  - filter databse matching: preference 
+
+
 ## How to start up:
 0. `npm i` in 2 places.  
     1. under root of this project, run `npm i`
@@ -88,3 +98,7 @@ const toggleClass = () => {
 
 ## friendly error messages page:
 when user goes to /submission
+
+- Chatbot
+
+npm install react-simple-chatbot --save

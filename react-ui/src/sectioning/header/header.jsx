@@ -8,8 +8,9 @@ const Header = () => {
       <div>
         <NavLink to="/">
           <img src="/lip-logo.png" alt="logo" width="40" />
+          JokJok
         </NavLink>
-        <NavLink to="/">JokJok</NavLink>
+        {/* <NavLink to="/"></NavLink> */}
       </div>
       <ul>
         <li>
