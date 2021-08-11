@@ -7,7 +7,7 @@ const HelloWorld = () => {
 
   useEffect(() => {
     // useEffect inside to fetch data
-    const url = 'http://localhost:8080/hello-world';
+    const url = '/hello-world';
 
     fetch(url)
       .then(response => response.json())
