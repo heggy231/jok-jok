@@ -5,6 +5,10 @@
 
 - working on :https://github.com/heggy231/jok-jok/commit/b96f3851dd95a61366331bf4633476b5a40b3886
 
+- reading hw: https://create-react-app.dev/docs/proxying-api-requests-in-development/
+
+- ez chabot - https://www.npmjs.com/package/react-simple-chatbot  npm
+
 ### different questions
 1. questions - based on score, people by 
 people into db - 
