@@ -9,15 +9,17 @@ import Login from "./login/Login";
 import Signup from "./signup/Signup";
 import Submission from "./submission/Submission";
 import ErrorBoundry from "../components/ErrorBoundry";
+import HelloWorld from "../components/HelloWorld";
 
 const Routes = ({ gender, isSubmitted }) => {
   return (
     <>
-      <Route exact={true} path="/signup" render={() => <Signup />} />
+      <Route exact path="/helloworld" render={() => <HelloWorld />} />
+      <Route exact path="/signup" render={() => <Signup />} />
       <Route exact path="/submission" render={() => <Submission />} />
-      <Route exact={true} path="/" render={() => <Login />} />
+      <Route exact path="/" render={() => <Login />} />
       <Route
-        exact={true}
+        exact
         path="/decide"
         render={() => (
           <ErrorBoundry>
@@ -31,7 +33,7 @@ const Routes = ({ gender, isSubmitted }) => {
         {gender ? <Redirect to="/decide" /> : <Redirect to="/gender" />}
       </Route>
 
-      <Route exact={true} path="/dashboard" render={() => <Dashboard />} />
+      <Route exact path="/dashboard" render={() => <Dashboard />} />
       <Route exact={true} path="/chat" render={() => <Chat />} />
       <Route exact={true} path="/credits" render={() => <Credits />} />
     </>

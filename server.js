@@ -6,11 +6,20 @@ const app = express();
 const {PORT} = process.env;
 
 app.use(express.static(path.resolve(__dirname + '/react-ui/build')));
+
+app.get("/hello-world", (req, res) => {
+  res.json({
+    is: "hello-world",
+  });
+})
+
 app.get("/heartbeat", (req, res) => {
   res.json({
     is: "working",
   });
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`port running at http://localhost:${PORT}`);
